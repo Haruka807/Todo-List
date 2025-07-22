@@ -1,0 +1,14 @@
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  account VARCHAR(50) NOT NULL UNIQUE,
+  `password` VARCHAR(100) NOT NULL,
+  userName VARCHAR(50)
+);
+
+CREATE TABLE todos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  account VARCHAR(50) NOT NULL,
+  `text` VARCHAR(255) NOT NULL,
+  completed BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (account) REFERENCES users(account)
+);
